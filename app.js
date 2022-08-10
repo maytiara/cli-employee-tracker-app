@@ -7,7 +7,18 @@ const inquirer = require('inquirer');
 
 inquirer.prompt ([
   {
-    
+    message: "Hello, welcome to secret database of this start-up company.",
+    type: 'list',
+    name: 'operation',
+    choices: [
+      "View All Departments",     
+      "View All Roles",
+      "View All Employees",
+      "Add department",
+      "Add Roles",
+      "Add An Employee",
+      "Update Employee Role",
+    ]
   }
 ])
 
