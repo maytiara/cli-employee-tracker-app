@@ -25,3 +25,12 @@ ADD CONSTRAINT `fk_roles_1`
   REFERENCES `departments` (`id`)
   ON DELETE CASCADE
   ON UPDATE NO ACTION;
+
+CREATE TABLE `employees` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `role_id` INT UNSIGNED NOT NULL,
+  `manager_id` INT UNSIGNED NULL,
+  PRIMARY KEY (`id`));
+
