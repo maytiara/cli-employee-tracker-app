@@ -15,3 +15,13 @@ CREATE TABLE `roles` (
   `salary` DECIMAL NOT NULL,
   `department_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`));
+
+ALTER TABLE `roles` 
+ADD INDEX `fk_roles_1_idx` (`department_id` ASC) VISIBLE;
+;
+ALTER TABLE `roles` 
+ADD CONSTRAINT `fk_roles_1`
+  FOREIGN KEY (`department_id`)
+  REFERENCES `employee_tracker_cms`.`departments` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE NO ACTION;
