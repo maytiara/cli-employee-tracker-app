@@ -11,10 +11,12 @@ const mysql = require('mysql2/promise');
 
 function db (){
 
-  mysql.createConnection({
+  return mysql.createConnection({
     host: process.env.DB_HOST, // env 
     password: process.env.DB_PASSWORD, // env
     user: process.env.DB_USER, // env
     database: 'employee_tracker_cms',
   })
 }
+
+module.exports = {db}; // exported it as an object {}
