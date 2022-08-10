@@ -34,3 +34,20 @@ CREATE TABLE `employees` (
   `manager_id` INT UNSIGNED NULL,
   PRIMARY KEY (`id`));
 
+ALTER TABLE `employees` 
+ADD INDEX `fk_employees_1_index_idx` (`role_id` ASC) VISIBLE,
+ADD INDEX `fk_employees_2_index_idx` (`manager_id` ASC) VISIBLE;
+;
+ALTER TABLE `employees` 
+ADD CONSTRAINT `fk_employees_1_index`
+  FOREIGN KEY (`role_id`)
+  REFERENCES `roles` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_employees_2_index`
+  FOREIGN KEY (`manager_id`)
+  REFERENCES `employees` (`id`)
+  ON DELETE SET NULL
+  ON UPDATE NO ACTION;
+
+
