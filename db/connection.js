@@ -9,7 +9,7 @@ try {
 // Import and require mysql2
 const mysql = require('mysql2/promise');
 
-function db (){
+function createConnect(){
 
   return mysql.createConnection({
     host: process.env.DB_HOST, // env 
@@ -19,4 +19,4 @@ function db (){
   })
 }
 
-module.exports = {db}; // exported it as an object {}
+module.exports = {createConnect}; // exported it as an object {}
