@@ -9,6 +9,6 @@ function getDepart() {
 
 module.exports = {
 
-  addDepart(),
-  getDepart(),
+  addDepart,
+  getDepart, 
 }
