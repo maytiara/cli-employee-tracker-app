@@ -1,10 +1,6 @@
 // import and require dotenv
-// plus, using a try catch error if anything goes wrong the first line will be undefined
-try {
-  require('dotenv').config();
-} catch(err){
-  console.log(err);
-}
+// specify the relative path
+require('dotenv').config({ path: 'db/.env' });
 
 // Import and require mysql2
 const mysql = require('mysql2/promise');
