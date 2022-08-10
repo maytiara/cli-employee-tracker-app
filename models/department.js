@@ -5,10 +5,13 @@ function addDepart() {
 
 }
 
+// this function provide the connection between mysql database
 async function getDepart() {
   
-  const db = await createConnect();
-  db.query(sql)
+  const db = await createConnect(); // used await instead using the .then syntax
+  const [departments] = await db.query('SELECT * FROM DEPARTMENTS'); // used await instead using the .then syntax
+
+  return departments;
 }
 
 module.exports = {
