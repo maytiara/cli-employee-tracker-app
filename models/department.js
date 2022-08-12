@@ -6,11 +6,12 @@ function addDepart() {
 }
 
 // this function provide the connection between mysql database
+// query database
 async function getDepart() {
   
-  const db = await createConnect(); // used await instead using the .then syntax
-  const [departments] = await db.query('SELECT * FROM DEPARTMENTS'); // used await instead using the .then syntax
-
+  const db = await createConnect(); // using promise wrapper
+  const [departments] = await db.query('SELECT * FROM departments'); // using promise wrapper
+  
   return departments;
 }
 
