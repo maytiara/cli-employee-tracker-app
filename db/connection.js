@@ -13,7 +13,10 @@ function createConnect(){
     password: process.env.DB_PASSWORD, // env
     user: process.env.DB_USER, // env
     database: 'employee_tracker_cms',
-  })
+  },
+  ).catch(err => { // added some noise when there's a connection error
+    console.log("Oh no! Error found");
+  });
 }
 
 module.exports = {createConnect}; // exported as an object {}
