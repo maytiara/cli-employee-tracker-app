@@ -1,10 +1,11 @@
 // import and require dotenv
 // specify the relative path
-require('dotenv').config({ path: 'db/.env' });
+require('dotenv').config({ path: 'db/.env' });  
 
 // Import and require mysql2
 const mysql = require('mysql2/promise');
 
+// Create connection to database
 function createConnect(){
 
   return mysql.createConnection({
@@ -15,4 +16,4 @@ function createConnect(){
   })
 }
 
-module.exports = {createConnect}; // exported it as an object {}
+module.exports = {createConnect}; // exported as an object {}
