@@ -7,7 +7,7 @@ const Table = require('easy-table'); // npm package
 const inquirer = require('inquirer'); // npm package
 const { getDepart } = require('./models/department'); // added automatically by VS C
 const { addDepart } = require('./models/department'); // added for addDepart object value
-const { getRoles } = require('./models/roles'); // added automatically by VS C
+const { getRoles, addRole } = require('./models/roles'); // added automatically by VS C
 
 // this is a recursive function, having a base case to make sure the function will be terminated. **Not advisable for big/critical application.
 function main() {
@@ -21,7 +21,7 @@ function main() {
         "View All Roles",
         "View All Employees",
         "Add Department",
-        "Add Roles",
+        "Add Role",
         "Add An Employee",
         "Update Employee Role",
         "exit",
@@ -36,10 +36,10 @@ function main() {
     },
     {
       // Prompt for Add Role
-      message: "Please enter the department name?",
+      message: "Please enter the position/role name?",
       type: 'input',
-      name:'department_name',
-      when: (ans) => ans.operation === 'Add Department',
+      name:'role_name',
+      when: (ans) => ans.operation === 'Add Role',
     }
 
   ]).then(async (ans) => { //-- this retrieve the answer from the list of choices
@@ -59,6 +59,11 @@ function main() {
 
       case "Add Department":
         await addDepart(ans.department_name);
+        console.log(`Successfully added to our database`);
+        break;
+
+      case "Add Role":
+        await addRole(ans.role_name);
         break;
   
       // Once the user, select the exit, node environment will stop the process.
