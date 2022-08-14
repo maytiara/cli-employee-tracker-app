@@ -3,6 +3,7 @@
 // .gitignore > necessary files
 // CREATE > table using mySQL -->done using ./db/schema.sql
 
+const Table = require('easy-table'); // npm package
 const inquirer = require('inquirer'); // npm package
 const { getDepart } = require('./models/department'); // added automatically by VS C
 const { addDepart } = require('./models/department'); // added for addDepart object value
@@ -32,7 +33,15 @@ function main() {
       type: 'input',
       name:'department_name',
       when: (ans) => ans.operation === 'Add Department',
+    },
+    {
+      // Prompt for Add Role
+      message: "Please enter the department name?",
+      type: 'input',
+      name:'department_name',
+      when: (ans) => ans.operation === 'Add Department',
     }
+
   ]).then(async (ans) => { //-- this retrieve the answer from the list of choices
     
     // switch statement that matches the value of each "case" clause
@@ -40,12 +49,12 @@ function main() {
   
       case "View All Departments":
         const departments = await getDepart();
-        console.table(departments);
+        console.log(Table.print(departments)); //render using easy-table npm
         break;
       
       case "View All Roles":
         const roles = await getRoles();
-        console.table(roles);
+        console.log(Table.print(roles)); //render using easy-table npm
         break;
 
       case "Add Department":
