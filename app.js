@@ -5,6 +5,7 @@
 
 const inquirer = require('inquirer'); // npm package
 const { getDepart } = require('./models/department'); // added automatically by VS C
+const { getRoles } = require('./models/roles');
 
 // this is a recursive function, having a base case to make sure the function will be terminated. **Not advisable for big/critical application.
 function main() {
@@ -33,6 +34,11 @@ function main() {
         const departments = await getDepart();
         console.table(departments);
         break;
+      
+      case "View All Roles":
+        const roles = await getRoles();
+        console.table(roles);
+        break;
   
       // Once the user, select the exit, node environment will stop the process.
       case "exit":
@@ -43,7 +49,7 @@ function main() {
   })
 }
 
-main ();
+main();
 
 
 // User inputs: 
