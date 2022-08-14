@@ -10,7 +10,9 @@ function addRole() {
 async function getRoles() {
   
   const db = await createConnect(); // using promise wrapper
-  const [roles] = await db.query('SELECT * FROM roles'); // using promise wrapper
+  const [roles] = await db.query(
+    'SELECT roles.id, roles.title, roles.salary, departments.name FROM employee_tracker_cms.roles AS roles, employee_tracker_cms.departments AS departments WHERE departments.id = roles.department_id'
+    ); // using promise wrapper
   
   return roles;
 }
