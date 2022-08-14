@@ -49,5 +49,3 @@ ADD CONSTRAINT `fk_employees_2_index`
   REFERENCES `employees` (`id`)
   ON DELETE SET NULL
   ON UPDATE NO ACTION;
-
-
