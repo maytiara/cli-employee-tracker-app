@@ -1,8 +1,11 @@
 const { createConnect } = require("../db/connection"); // added automatically by VS C
 
 // these functions will be imported to the app.js (or main/server js)
-function addDepart() {
+async function addDepart(name) {
 
+  const db = await createConnect(); // using promise wrapper
+  await db.query('INSERT INTO `employee_tracker_cms`.`departments` (`name`) VALUES (?)', name);
+  
 }
 
 // this function provide the connection between mysql database

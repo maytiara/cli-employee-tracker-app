@@ -17,6 +17,8 @@ function createConnect(){
   ).catch(err => { // added some noise when there's a connection error
     console.log("Oh no! Error found");
   });
+
+  
 }
 
 module.exports = {createConnect}; // exported as an object {}
