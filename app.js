@@ -18,12 +18,19 @@ function main() {
         "View All Departments",     
         "View All Roles",
         "View All Employees",
-        "Add department",
+        "Add Department",
         "Add Roles",
         "Add An Employee",
         "Update Employee Role",
         "exit",
       ]
+    },
+    {
+      // Prompt for Add Department
+      message: "Do you want to have an additional department?",
+      type: 'input',
+      name:'department_name',
+      when: (ans) => ans.operation === 'Add Department',
     }
   ]).then(async (ans) => { //-- this retrieve the answer from the list of choices
     
@@ -38,6 +45,11 @@ function main() {
       case "View All Roles":
         const roles = await getRoles();
         console.table(roles);
+        break;
+
+      case "Add Department":
+        const departmentAdd = await addDepart();
+        console.table(departments);
         break;
   
       // Once the user, select the exit, node environment will stop the process.
