@@ -48,7 +48,7 @@ function main() {
         break;
 
       case "Add Department":
-        const departmentAdd = await addDepart();
+        const departmentAdd = await addDepart(ans.department_name);
         console.table(departments);
         break;
   
