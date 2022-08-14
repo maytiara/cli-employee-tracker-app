@@ -5,7 +5,8 @@
 
 const inquirer = require('inquirer'); // npm package
 const { getDepart } = require('./models/department'); // added automatically by VS C
-const { getRoles } = require('./models/roles');
+const { addDepart } = require('./models/department'); // added for addDepart object value
+const { getRoles } = require('./models/roles'); // added automatically by VS C
 
 // this is a recursive function, having a base case to make sure the function will be terminated. **Not advisable for big/critical application.
 function main() {
@@ -27,7 +28,7 @@ function main() {
     },
     {
       // Prompt for Add Department
-      message: "Do you want to have an additional department?",
+      message: "Please enter the department name?",
       type: 'input',
       name:'department_name',
       when: (ans) => ans.operation === 'Add Department',
@@ -48,8 +49,7 @@ function main() {
         break;
 
       case "Add Department":
-        const departmentAdd = await addDepart(ans.department_name);
-        console.table(departments);
+        await addDepart(ans.department_name);
         break;
   
       // Once the user, select the exit, node environment will stop the process.
