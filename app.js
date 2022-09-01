@@ -7,6 +7,7 @@ const Table = require('easy-table'); // npm package
 const inquirer = require('inquirer'); // npm package
 const { getDepart } = require('./models/department'); // added automatically by VS C
 const { addDepart } = require('./models/department'); // added for addDepart object value
+const { getEmployees } = require('./models/employee'); // added automatically by VS C
 const { getRoles, addRole } = require('./models/roles'); // added automatically by VS C
 
 // this is a recursive function, having a base case to make sure the function will be terminated. **Not advisable for big/critical application.
@@ -55,6 +56,11 @@ function main() {
       case "View All Roles":
         const roles = await getRoles();
         console.log(Table.print(roles)); //render using easy-table npm
+        break;
+
+      case "View All Employees":
+        const employees = await getEmployees();
+        console.log(Table.print(employees)); //render using easy-table npm
         break;
 
       case "Add Department":
