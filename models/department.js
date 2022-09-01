@@ -1,4 +1,4 @@
-const { createConnect } = require("../db/connection"); // added automatically by VS C
+const { createConnect } = require("../connection/connection"); // added automatically by VS C
 
 // these functions will be imported to the app.js (or main/server js)
 async function addDepart(name) {

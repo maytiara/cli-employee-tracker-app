@@ -1,4 +1,4 @@
-const { createConnect } = require("../db/connection");
+const { createConnect } = require("../connection/connection");
 
 // these functions will be imported to the app.js (or main/server js)
 function addRole() {
