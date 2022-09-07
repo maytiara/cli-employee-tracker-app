@@ -71,6 +71,11 @@ function main() {
       case "Add Role":
         await addRole(ans.role_name);
         break;
+
+      case "Add An Employee":
+        await addEmployees(ans.employee_name);
+        console.log(`Successfully added to our database`);
+        break;
   
       // Once the user, select the exit, node environment will stop the process.
       case "exit":
