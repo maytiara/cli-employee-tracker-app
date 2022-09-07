@@ -1,11 +1,9 @@
 const { createConnect } = require("../connection/connection");
 
 // create employees
-async function addEmployee (first_name, last_name){
+async function addEmployees (first_name, last_name){
 
-  const db = await createConnect();
-  
-  await db.query ('INSERT INTO `employee_tracker_cms`.`employees` (first_name, last_name) VALUES (?)', first_name, last_name);
+  //
 
 }
 
@@ -21,7 +19,8 @@ async function getEmployees (){
 
 }
 
-module.exports = { 
-  addEmployee,
+module.exports = {
+
+  addEmployees,
   getEmployees,
  };

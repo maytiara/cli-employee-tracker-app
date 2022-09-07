@@ -1,8 +1,9 @@
 const { createConnect } = require("../connection/connection");
 
 // these functions will be imported to the app.js (or main/server js)
-function addRole() {
-
+async function addRole(title, salary, department_id) {
+  //
+  
 }
 
 // this function provide the connection between mysql database
