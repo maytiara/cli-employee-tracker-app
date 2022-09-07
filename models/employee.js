@@ -5,7 +5,7 @@ async function addEmployee (first_name, last_name){
 
   const db = await createConnect();
   
-  await db.query ('INSERT INTO `employee_tracker_cms`.`employees` (`first_name`, `last_name`) VALUES (?,?)', first_name, last_name);
+  await db.query ('INSERT INTO `employee_tracker_cms`.`employees` (first_name, last_name) VALUES (?)', first_name, last_name);
 
 }
 
@@ -14,10 +14,14 @@ async function getEmployees (){
 
   const db = await createConnect();
   
-  const [employees] = await db.query ('SELECT * FROM employee_tracker_cms.employees'); // Select all 
+  // Query to Join data from different table
+  const [employees] = await db.query ('SELECT employees.id AS `ID`, employees.first_name AS `FIRST NAME`, employees.last_name AS `SURNAME`, roles.title AS `TITLE`, employees.manager_id AS `MANAGER` FROM employee_tracker_cms.employees AS employees LEFT JOIN employee_tracker_cms.roles AS roles ON employees.role_id = roles.id'); 
 
   return employees;
 
 }
 
-module.exports = { getEmployees };
+module.exports = { 
+  addEmployee,
+  getEmployees,
+ };

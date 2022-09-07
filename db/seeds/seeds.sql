@@ -36,7 +36,12 @@ FROM employee_tracker_cms.roles AS roles, -- using implicit inner join / by sele
 employee_tracker_cms.departments AS departments 
 	WHERE departments.id = roles.department_id; -- roles table data query
 
-  -- SELECT id, title, salary, d.name
-FROM departments d
-JOIN roles r
-	ON d.name = r.department_id
+--Query for EMPLOYEES Table
+SELECT employees.id AS `ID`, employees.first_name AS `FIRST NAME`,
+employees.last_name AS `SURNAME`,
+roles.title AS `TITLE`,
+employees.manager_id AS `MANAGER`
+
+FROM employee_tracker_cms.employees AS employees
+LEFT JOIN employee_tracker_cms.roles AS roles
+ON employees.role_id = roles.id;
