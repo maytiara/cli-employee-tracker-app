@@ -9,7 +9,8 @@ VALUES (1, 'CEO/Founder'),
        (6, 'Sales/Marketing'),
        (7, 'Finance/HR/Admin');
 
-SELECT * 
+SELECT departments.id AS `ID`,
+departments.name AS `DEPARTMENT NAME`
 FROM employee_tracker_cms.departments AS departments; -- departments table data query
 
 INSERT INTO roles (`id`, `title`, `salary`, `department_id`) 

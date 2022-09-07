@@ -13,7 +13,7 @@ async function addDepart(name) {
 async function getDepart() {
   
   const db = await createConnect(); // using promise wrapper
-  const [departments] = await db.query('SELECT * FROM departments'); // using promise wrapper
+  const [departments] = await db.query('SELECT departments.id AS `ID`, departments.name AS `DEPARTMENT NAME` FROM employee_tracker_cms.departments AS departments;'); // using promise wrapper
   
   return departments;
 }
