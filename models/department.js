@@ -4,8 +4,9 @@ const { createConnect } = require("../connection/connection"); // added automati
 async function addDepart(name) {
 
   const db = await createConnect(); // using promise wrapper
-  await db.query('INSERT INTO `employee_tracker_cms`.`departments` (`name`) VALUES (?)', name);
+  db.query('INSERT INTO `employee_tracker_cms`.`departments` (`name`) VALUES (?)', name);
   
+  //("INSERT INTO 'table name' SET ?", name)
 }
 
 // this function provide the connection between mysql database
