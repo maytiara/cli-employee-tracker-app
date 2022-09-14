@@ -1,10 +1,24 @@
 const { createConnect } = require("../connection/connection");
 
 // create employees
-async function addEmployees (first_name, last_name){
+async function addEmployees (first_name, last_name, role_id){
 
-  //("INSERT INTO 'table name' SET ?", name)
-  // INSERT INTO `employee_tracker_cms`.`employees` (`id`, `first_name`, `last_name`, `role_id`, `manager_id`) VALUES ('18', 'Sheila', 'Marquez', '17', '16');
+  const db = await createConnect(); // using promise wrapper
+
+  const query = await `INSERT INTO employees (first_name, last_name, role_id) VALUES (?,?,?);`
+
+  const values = [first_name, last_name, role_id];
+
+  const [insertEmployee] = await db.query(query, values, (err) => {
+    if (err) {
+			console.log("Successfully updated");
+			if (err.code == "Please try again") {
+				return false;
+			}
+		}
+
+		return insertEmployee;
+  });
 }
 
 // to get the data from the database
