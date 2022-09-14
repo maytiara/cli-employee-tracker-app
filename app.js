@@ -36,6 +36,7 @@ function main() {
 				name: "department_name",
 				when: (ans) => ans.operation === "Add Department",
 			},
+			// add update employee role: (future ref)
 		])
 		.then(async (ans) => {
 			//-- this retrieve the answer from the list of choices
@@ -111,7 +112,7 @@ function main() {
 							name: "employee_gname",
 						},
 						{
-							// Prompt for Add Employee (2st Question)
+							// Prompt for Add Employee (2nd Question)
 							message: "Please enter the employee's surname/last name?",
 							type: "input",
 							name: "employee_sname",
