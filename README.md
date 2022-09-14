@@ -11,9 +11,9 @@
 ![mit-license](https://img.shields.io/badge/license-MIT-yellowgreen) ![npm-mysql2](https://img.shields.io/badge/npm-mysql2-blue) ![npm-inquirer](https://img.shields.io/badge/npm-inquirer-blue) ![npm-easy-table](https://img.shields.io/badge/npm-easy--table-blue) ![npm-dotenv](https://img.shields.io/badge/npm-dotenv-red)
 
 ## Description
-**A command-line application to get access to the company's database using Nodejs and connects the data from MySQL, which you can able to view the details of departments, roles, and employees and also add roles/dept/employee.**
+**A command-line application to get access to the company's database using Nodejs and connects the data from MySQL, which you can able to view company's details for departments, roles, employees and also add roles/dept/employee.**
 
-The app was able to connect to the database and update the terminal using an asynchronous function. Using MySQL queries to SELECT the data from tables, JOIN the fields coming from different tables and INSERT the data entered from the CLI. 
+The app was able to connect to the database and update command terminal using an asynchronous function. Using MySQL queries to **SELECT** the data from tables, **JOIN** the fields coming from different tables and **INSERT** the data entered from the CLI. 
 
 [Walkthrough Video](https://vimeo.com/747280321)
 
@@ -45,7 +45,7 @@ Entity Relationship Diagram for employee tracker app, using SQL relationship.
 ## Demo
 * **Employee Tracker App : CLI**
 
-![cli-in-ide](public/images/cli-employee-tracker-app-gif.gif)
+![cli-in-ide](public/images/cli-employee-tracker-app.gif)
 
 * **Employee Tracker App : MySQL**
 
