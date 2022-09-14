@@ -46,3 +46,7 @@ employees.manager_id AS `MANAGER`
 FROM employee_tracker_cms.employees AS employees
 LEFT JOIN employee_tracker_cms.roles AS roles
 ON employees.role_id = roles.id;
+
+INSERT INTO `employee_tracker_cms`.`employees` (`id`, `first_name`, `last_name`, `role_id`, `manager_id`) VALUES ('18', 'Daniel', 'Smith', '17', '16');
+
+INSERT INTO 'table name' SET ?", name;
