@@ -33,6 +33,8 @@ async function getEmployees (){
 
 }
 
+// update employees role
+
 module.exports = {
 
   addEmployees,
