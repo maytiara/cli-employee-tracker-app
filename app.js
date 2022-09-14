@@ -5,9 +5,8 @@
 
 const Table = require("easy-table"); // npm package
 const inquirer = require("inquirer"); // npm package
-const { getDepart } = require("./models/department"); // added automatically by VS C
-const { addDepart } = require("./models/department"); // added for addDepart object value
-const { getEmployees, addEmployees } = require("./models/employee"); // added automatically by VS C
+const { getDepart, addDepart } = require("./models/department"); // added automatically by VS C
+const { getEmployees, addEmployee } = require("./models/employee"); // added automatically by VS C
 const { getRoles, addRole } = require("./models/roles"); // added automatically by VS C
 
 // this is a recursive function, having a base case to make sure the function will be terminated. **Not advisable for big/critical application.
@@ -97,13 +96,13 @@ function main() {
 					break;
 
 				case "Add An Employee":
-
 					const empAdded = await getRoles(); //declare the repeated getRoles.fn()
 
 					const empRoles = empAdded.map((row) => {
 						// .map() creates a new array by calling the row parameter of sql database and getting the value for each field
 						return { name: row["TITLE"], value: row["ID"] };
 					});
+
 					let newEmpAns = await inquirer.prompt([
 						{
 							// Prompt for Add Employee (1st Question)
@@ -125,18 +124,14 @@ function main() {
 							name: "employee_role",
 						},
 					]);
-					await addEmployees(
-						newEmpAns.employee_gname,
-						newEmpAns.employee_sname,
-						newEmpAns.employee_role
-					);
+					await addEmployee(newEmpAns.employee_gname, newEmpAns.employee_sname, newEmpAns.employee_role, null);
 					console.log(`🔑 Successfully added to our database 🔑`);
 					break;
 
 				// Once the user, select the exit, node environment will stop the process.
 				case "exit":
 					process.exit(0);
-					break;
+				break;
 			}
 			await main();
 		});
