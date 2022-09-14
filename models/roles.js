@@ -8,7 +8,7 @@ async function addRole(title, department_id, salary) {
 
 	const values = [title, department_id, salary];
 
-	await db.query(query, values, (err) => {
+	const [insertRole] = await db.query(query, values, (err) => {
 		if (err) {
 			console.log("Successfully updated");
 			if (err.code == "Please try again") {
@@ -16,7 +16,7 @@ async function addRole(title, department_id, salary) {
 			}
 		}
 
-		return insertId;
+		return insertRole;
 	});
 }
 
